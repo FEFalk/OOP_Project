@@ -4,11 +4,10 @@
 
 Container::Container()
 {
-	container = new ControlBase();
 }
-Container::Container(int locX, int locY, int width, int height):ControlBase(locX, locY, width, height)
+Container::Container(int locX, int locY, int width, int height, float order)
+	: ControlBase(locX, locY, width, height, order)
 {
-
 }
 
 
@@ -17,16 +16,25 @@ Container::~Container()
 }
 void Container::OnLoaded(void)
 {
-	color = Color(255, 0, 0);
+
+	for (int i = 0; i < controls.size(); i++)
+	{
+		controls[i]->OnLoaded();
+}
 }
 void Container::OnPaint()
 {
-	SetColor(color.r, color.g, color.b);
-	FillRectangle(X, Y, Width, Height);
+	for (int i = 0; i < controls.size(); i++)
+	{
+		controls[i]->OnPaint();
+	}
 }
-void Container::SetNewColor(int r, int g, int b)
+
+void Container::AddControl(ControlBase &newControl)
 {
-	color.r = r;
-	color.g = g;
-	color.b = b;
+	controls.push_back(&newControl);
+	newControl.SetPosition(newControl.GetPosition().Y + position.Y, newControl.GetPosition().X + position.X);
+	//Sätt sort order lite framför "filled-rectangle"
+	newControl.SetSortOrder(0);
+
 }

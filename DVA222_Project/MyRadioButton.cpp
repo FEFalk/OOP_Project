@@ -23,17 +23,17 @@ void MyRadioButton::OnPaint()
 	SetColor(255, 0, 0);
     if (checked)
 	{
-    	DrawCircle(X, Y, 15);
-		DrawCircle(X, Y, 10);
+		DrawCircle(position.X, position.Y, 15);
+		DrawCircle(position.X, position.Y, 10);
 	}
     else
-        DrawCircle(X, Y, 15);
+		DrawCircle(position.X, position.Y, 15);
     
 }
 
 void MyRadioButton::OnMouseMove(int button, int x, int y)
 {
-	if (x>X && x < X+Width && y>Y && y < Y+Height)
+	if (x>position.X && x < position.X + Width && y>position.Y && y < position.Y + Height)
 		hit = true;
 	else
 		hit = false;

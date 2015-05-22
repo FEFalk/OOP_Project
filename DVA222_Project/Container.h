@@ -1,19 +1,19 @@
 #pragma once
-#include "ControlBase.h"
-#include "Struct.h"
 #include "Graphix.h"
+#include <vector>
+
 class Container:public ControlBase
 {
 public:
 	Container();
-	Container(int locX, int locY, int width, int height);
+	Container(int locX, int locY, int width, int height, float order);
 	~Container();
-	void OnLoaded(void);
-	void SetNewColor(int r, int g, int b);
-	void OnPaint();
+	virtual void OnLoaded(void);
+	virtual void OnPaint();
 	
+	void AddControl(ControlBase  &control);
+
 protected:
-	ControlBase *container;
-	Color color;
+	vector <ControlBase *> controls;
 };
 

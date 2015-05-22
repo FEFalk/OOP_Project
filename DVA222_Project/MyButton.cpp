@@ -29,7 +29,7 @@ MyButton::~MyButton()
 //This is called whenever the user moves the mouse around
 void MyButton::OnMouseMove(int button, int x, int y)
 {
-	if (x>X && x < X+Width && y>Y && y < Y+Height)
+	if (x>position.X && x < position.X + Width && y>position.Y && y < position.Y + Height)
 		hit = true;
 	else
     {
@@ -41,11 +41,11 @@ void MyButton::OnMouseMove(int button, int x, int y)
 void MyButton::OnPaint()
 {
     if (pressed)
-    	DrawBitmap(*press, X,Y,Width, Height);	
+		DrawBitmap(*press, position.X, position.Y, Width, Height);
 	else if (hit)
-    	DrawBitmap(*hover, X,Y,Width, Height);
+		DrawBitmap(*hover, position.X, position.Y, Width, Height);
     else
-        DrawBitmap(*normal, X,Y,Width, Height);
+		DrawBitmap(*normal, position.X, position.Y, Width, Height);
     
 }
 

@@ -14,20 +14,8 @@ using namespace std;
 //
 //===================================
 
-
-typedef struct _point
-{
-	_point()
-	{
-	}
-	_point(double x, double y)
-	{
-	 X = x;
-	 Y = y;
-	}
-	double X;
-	double Y;
-}Point;
+#ifndef GRAPHIX_H
+#define GRAPHIX_H
 
 typedef struct _size
 {
@@ -83,7 +71,7 @@ void InitOGL(int argc, char** argv, ControlBase *window);
 
 void SetColor(int r, int  g, int  b);
 
-void FillRectangle(int x, int y, int width, int height );
+void FillRectangle(int x, int y, int width, int height, int z);
 
 void DrawCircle(int cx, int cy, int radius);
 void DrawLine(int x1, int y1, int x2, int y2 );
@@ -99,3 +87,4 @@ void DrawBitmap(Bitmap &b, Rect& rect, int x, int y);           //Draws a bitmap
 #define MOUSE_RIGHT     2
 
 
+#endif
