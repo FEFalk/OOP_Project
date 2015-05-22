@@ -77,21 +77,36 @@
     <None Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="CheckBoxButton.h" />
+    <ClInclude Include="Container.h" />
     <ClInclude Include="Graphix.h" />
     <ClInclude Include="ControlBase.h" />
+    <ClInclude Include="ImageBox.h" />
     <ClInclude Include="MyButton.h" />
+    <ClInclude Include="MyRadioButton.h" />
+    <ClInclude Include="Panel.h" />
     <ClInclude Include="stdafx.h" />
+    <ClInclude Include="Struct.h" />
     <ClInclude Include="targetver.h" />
+    <ClInclude Include="TextLabel.h" />
+    <ClInclude Include="Window.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="CheckBoxButton.cpp" />
+    <ClCompile Include="Container.cpp" />
     <ClCompile Include="DVA222_Project.cpp" />
     <ClCompile Include="Graphix.cpp" />
     <ClCompile Include="ControlBase.cpp" />
+    <ClCompile Include="ImageBox.cpp" />
     <ClCompile Include="MyButton.cpp" />
+    <ClCompile Include="MyRadioButton.cpp" />
+    <ClCompile Include="Panel.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="TextLabel.cpp" />
+    <ClCompile Include="Window.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
