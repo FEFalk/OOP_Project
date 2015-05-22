@@ -1,4 +1,6 @@
 
+#ifndef STRUCTS_H
+#define STRUCTS_H
 struct Color
 {
 	int r;
@@ -12,3 +14,4 @@ struct Color
 		this->b=b;
 	}
 };
+#endif

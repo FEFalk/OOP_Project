@@ -6,7 +6,7 @@ Panel::Panel()
 {
 	panel = new Container();
 }
-Panel::Panel(int locX, int locY, int width, int height, int size):Container(locX, locY, width, height)
+Panel::Panel(int locX, int locY, int width, int height, int size):Container(locX, locY, width, height, size)
 {
 	panel = (Container *)realloc(panel, size * sizeof(Container));
 	this->size = size;
