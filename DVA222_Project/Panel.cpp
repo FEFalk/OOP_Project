@@ -4,29 +4,38 @@
 
 Panel::Panel()
 {
-	panel = new Container();
+
 }
-Panel::Panel(int locX, int locY, int width, int height, int size):Container(locX, locY, width, height, size)
+Panel::Panel(int locX, int locY, int width, int height, float order)
+	:Container(locX, locY, width, height, order)
 {
-	panel = (Container *)realloc(panel, size * sizeof(Container));
-	this->size = size;
-	size++;
+	
 }
 
 
 Panel::~Panel()
 {
+	
 }
 void Panel::OnLoaded(void)
 {
+	for (int i = 0; i < controls.size(); i++)
+	{
+		controls[i]->OnLoaded();
+	}
+
 	color = Color(255, 0, 0);
 }
 void Panel::OnPaint()
 {
+	for (int i = 0; i < controls.size(); i++)
+	{
+		controls[i]->OnPaint();
+	}
+
 	SetColor(color.r, color.g, color.b);
 
-	DrawRectangle(X, Y, Width, Height);
-	FillRectangle(X, Y, Width, Height);
+	FillRectangle(position.X, position.Y, Width, Height, SortOrder);
 }
 void Panel::SetNewColor(int r, int g, int b)
 {

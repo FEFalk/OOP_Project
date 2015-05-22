@@ -5,7 +5,8 @@
 TextLabel::TextLabel(void)
 {
 }
-TextLabel::TextLabel(int locX, int locY, int width, int height):ControlBase(locX, locY, width, height)
+TextLabel::TextLabel(int locX, int locY, int width, int height)
+	:ControlBase(locX, locY, width, height, 0)
 {
 
 }
@@ -24,7 +25,7 @@ void TextLabel::OnPaint()
 {
 	SetColor(color.r, color.g, color.b);
 
-	DrawString(labelString, X, Y);
+	DrawString(labelString, position.X, position.Y);
 }	
 void TextLabel::SetNewColor(int r, int g, int b)
 {

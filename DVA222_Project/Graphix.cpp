@@ -47,13 +47,13 @@ void DrawCircle(int cx, int cy, int radius )
     glEnd();    
 }
 
-void FillRectangle(int x, int y, int width, int height )
+void FillRectangle(int x, int y, int width, int height, int z)
 {
 	glBegin(GL_QUADS);
-        glVertex3f(x, y, 0.0);
-        glVertex3f(x+width, y, 0.0);
-		glVertex3f(x+width, y+height, 0.0);
-		glVertex3f(x, y+height, 0.0);
+        glVertex3f(x, y, z);
+        glVertex3f(x+width, y, z);
+		glVertex3f(x+width, y+height, z);
+		glVertex3f(x, y+height, z);
     glEnd();    
 }
 

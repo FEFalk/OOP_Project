@@ -1,8 +1,8 @@
 #pragma once
 #include <string>
 #include <stdlib.h>
-
 #include "glut.h"
+#include "Struct.h"
 
 using namespace std;
 
@@ -19,7 +19,7 @@ class ControlBase
 {
 public:
 	ControlBase();
-    ControlBase(int x, int y, int w, int h);
+    ControlBase(int x, int y, int w, int h, float z);
 	~ControlBase(void);
 
     //Event Handlers
@@ -30,8 +30,14 @@ public:
 	virtual void OnMouseUp(int button, int x, int y);
 	virtual void OnMouseMove(int button, int x, int y);
 	virtual void OnResize(int width, int height);
+
+	Point GetPosition();
+	void SetPosition(int x, int y);
+	void SetSortOrder(float newSortOrder);
+
 protected:
-    int X,Y;
+	Point position;
+	float SortOrder;
 	int Width;
 	int Height;
 	friend void resize(int w, int h);

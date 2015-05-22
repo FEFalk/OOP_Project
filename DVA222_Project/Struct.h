@@ -14,4 +14,21 @@ struct Color
 		this->b=b;
 	}
 };
+
+typedef struct _point
+{
+	_point()
+	{
+	}
+	_point(double x, double y)
+	{
+		X = x;
+		Y = y;
+	}
+	double X;
+	double Y;
+}Point;
+
+
 #endif
+

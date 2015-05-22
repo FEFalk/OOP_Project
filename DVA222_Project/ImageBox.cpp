@@ -2,7 +2,7 @@
 #include "ImageBox.h"
 
 ImageBox::ImageBox(int locX, int locY, int width, int height)
-    : ControlBase(locX, locY, width, height)
+    : ControlBase(locX, locY, width, height, 0)
 {
 
 }
@@ -20,5 +20,5 @@ void ImageBox::OnLoaded()
 
 void ImageBox::OnPaint()
 {
-	DrawBitmap(*image, X,Y,Width, Height);
+	DrawBitmap(*image, position.X, position.Y, Width, Height);
 }

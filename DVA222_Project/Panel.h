@@ -8,7 +8,7 @@ class Panel:public Container
 {
 public:
 	Panel();
-	Panel(int locX, int locY, int width, int height, int size);
+	Panel(int locX, int locY, int width, int height, float order);
 	~Panel();
 	void OnLoaded(void);
 	void SetNewColor(int r, int g, int b);
@@ -16,7 +16,6 @@ public:
 
 protected:
 	Container *panel;
-	Color color;
-	int size;
+	Color color; 
 };
 

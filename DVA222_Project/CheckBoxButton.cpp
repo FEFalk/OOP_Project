@@ -23,17 +23,17 @@ void CheckBoxButton::OnPaint()
 	SetColor(0, 255, 0);
     if (checked)
 	{
-    	DrawRectangle(X, Y, 15, 15);
-		DrawRectangle(X+2.75, Y+2.75, 10, 10);
+		DrawRectangle(position.X, position.Y, 15, 15);
+		DrawRectangle(position.X+2.75, position.Y+2.75, 10, 10);
 	}
     else
-        DrawRectangle(X, Y, 15, 15);
+		DrawRectangle(position.X, position.Y, 15, 15);
     
 }
 
 void CheckBoxButton::OnMouseMove(int button, int x, int y)
 {
-	if (x>X && x < X+Width && y>Y && y < Y+Height)
+	if (x>position.X && x < position.X + Width && y>position.Y && y < position.Y + Height)
 		hit = true;
 	else
 		hit = false;
