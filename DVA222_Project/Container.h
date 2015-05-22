@@ -6,7 +6,7 @@ class Container:public ControlBase
 {
 public:
 	Container();
-	Container(int locX, int locY, int width, int height, int size);
+	Container(int locX, int locY, int width, int height);
 	~Container();
 	void OnLoaded(void);
 	void SetNewColor(int r, int g, int b);
@@ -15,6 +15,5 @@ public:
 protected:
 	ControlBase *container;
 	Color color;
-	int size;
 };
 

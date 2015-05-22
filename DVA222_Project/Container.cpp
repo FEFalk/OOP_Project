@@ -6,11 +6,9 @@ Container::Container()
 {
 	container = new ControlBase();
 }
-Container::Container(int locX, int locY, int width, int height, int size):ControlBase(locX, locY, width, height)
+Container::Container(int locX, int locY, int width, int height):ControlBase(locX, locY, width, height)
 {
-	container = (ControlBase *)realloc(container, size * sizeof(ControlBase));
-	this->size = size;
-	size++;
+
 }
 
 
@@ -24,8 +22,6 @@ void Container::OnLoaded(void)
 void Container::OnPaint()
 {
 	SetColor(color.r, color.g, color.b);
-	
-	DrawRectangle(X, Y, Width, Height);
 	FillRectangle(X, Y, Width, Height);
 }
 void Container::SetNewColor(int r, int g, int b)
