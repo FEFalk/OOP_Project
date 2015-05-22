@@ -9,7 +9,7 @@ Panel::Panel()
 Panel::Panel(int locX, int locY, int width, int height, float order)
 	:Container(locX, locY, width, height, order)
 {
-	
+
 }
 
 

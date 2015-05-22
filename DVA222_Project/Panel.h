@@ -1,5 +1,4 @@
 #pragma once
-#include "ControlBase.h"
 #include "Graphix.h"
 #include "Struct.h"
 #include "Container.h"
@@ -14,7 +13,6 @@ public:
 	void SetNewColor(int r, int g, int b);
 	void OnPaint();
 
-protected:
 	Container *panel;
 	Color color; 
 };

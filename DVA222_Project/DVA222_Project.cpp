@@ -8,6 +8,7 @@
 #include "MyButton.h"
 #include "Container.h"
 #include "Panel.h"
+#include "Window.h"
 
 using namespace std;
 
