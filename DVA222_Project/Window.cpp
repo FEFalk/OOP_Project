@@ -5,7 +5,8 @@
 Window::Window()
 {
 }
-Window::Window(int locX, int locY, int width, int height):Panel(locX, locY, width, height)
+Window::Window(int locX, int locY, int width, int height, int order)
+	: Panel(locX, locY, width, height, order)
 {
 
 }
@@ -22,21 +23,34 @@ void Window::OnLoaded(void)
 }
 void Window::OnPaint()
 {
-	SetNewColor(0, 255, 0);
-	DrawRectangle(X, Y, Width+1, Height+1);
-	SetNewColor(255, 0, 0);
-	FillRectangle(X, Y, Width, Height);
-	SetNewColor(0, 0, 255);
-	DrawString(titelString, X-5, Y+50);
+	SetColor(borderColor.r, borderColor.g, borderColor.b);
+	DrawRectangle(position.X, position.Y, Width + 1, Height + 1);
+	SetColor(bgColor.r, bgColor.g, bgColor.b);
+	FillRectangle(position.X, position.Y, Width, Height, 0);
+	SetColor(titleColor.r, titleColor.g, titleColor.b);
+	DrawString(titelString, position.X - 5, position.Y + 50);
 	resize(50, 50);
 }
 
-void Window::SetNewColor(int r, int g, int b)
+void Window::SetBackgroundColor(int r, int g, int b)
 {
-	color.r = r;
-	color.g = g;
-	color.b = b;
-	SetColor(r, g, b);
+	bgColor.r = r;
+	bgColor.g = g;
+	bgColor.b = b;
+}
+
+void Window::SetBorderColor(int r, int g, int b)
+{
+	borderColor.r = r;
+	borderColor.g = g;
+	borderColor.b = b;
+}
+
+void Window::SetTitleColor(int r, int g, int b)
+{
+	titleColor.r = r;
+	titleColor.g = g;
+	titleColor.b = b;
 }
 
 Color Window::GetColor()
@@ -51,14 +65,14 @@ void Window::OnResize(int width, int height)
 
 void Window::OnMouseMove(int button, int x, int y)
 {
-	if (x>X && x < X + Width && y>Y && y < Y + Height)
+	if (x>position.X && x < position.X + Width && y>position.Y && y < position.Y + Height)
 		hit = true;
 	else
 		hit = false;
 	if (pressed)
 	{
-		X = x;
-		Y = y;
+		position.X = x;
+		position.Y = y;
 	}
 }
 

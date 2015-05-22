@@ -20,7 +20,7 @@ void Container::OnLoaded(void)
 	for (int i = 0; i < controls.size(); i++)
 	{
 		controls[i]->OnLoaded();
-}
+	}
 }
 void Container::OnPaint()
 {

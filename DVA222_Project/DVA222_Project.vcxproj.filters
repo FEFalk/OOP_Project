@@ -108,7 +108,7 @@
       <Filter>Source Files\Graphix</Filter>
     </ClCompile>
     <ClCompile Include="Window.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\Containers</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
