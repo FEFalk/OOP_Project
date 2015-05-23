@@ -12,6 +12,9 @@ public:
 	virtual void OnPaint();
 	
 	void AddControl(ControlBase  &control);
+	virtual void OnMouseUp(int button, int x, int y);
+	virtual void OnMouseDown(int button, int x, int y);
+	virtual void OnMouseMove(int button, int x, int y);
 
 protected:
 	vector <ControlBase *> controls;

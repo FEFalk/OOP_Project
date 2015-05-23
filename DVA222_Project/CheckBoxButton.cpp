@@ -7,7 +7,7 @@ CheckBoxButton::CheckBoxButton()
 }
 
 CheckBoxButton::CheckBoxButton(int locX, int locY)
-	: MyButton(locX, locY, 15, 15)
+	: MyButton(locX, locY, 30, 30)
 {
 	checked = false;
 }
@@ -23,11 +23,11 @@ void CheckBoxButton::OnPaint()
 	SetColor(0, 255, 0);
     if (checked)
 	{
-		DrawRectangle(position.X, position.Y, 15, 15);
-		DrawRectangle(position.X+2.75, position.Y+2.75, 10, 10);
+		DrawRectangle(position.X, position.Y, Width, Height);
+		DrawRectangle(position.X+3, position.Y+3, 24, 24);
 	}
     else
-		DrawRectangle(position.X, position.Y, 15, 15);
+		DrawRectangle(position.X, position.Y, Width, Height);
     
 }
 

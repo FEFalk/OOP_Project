@@ -41,11 +41,11 @@ void MyButton::OnMouseMove(int button, int x, int y)
 void MyButton::OnPaint()
 {
     if (pressed)
-		DrawBitmap(*press, position.X, position.Y, Width, Height);
+		DrawBitmap(*press, position.X, position.Y, Width, Height, SortOrder);
 	else if (hit)
-		DrawBitmap(*hover, position.X, position.Y, Width, Height);
+		DrawBitmap(*hover, position.X, position.Y, Width, Height, SortOrder);
     else
-		DrawBitmap(*normal, position.X, position.Y, Width, Height);
+		DrawBitmap(*normal, position.X, position.Y, Width, Height, SortOrder);
     
 }
 

@@ -1,3 +1,5 @@
+#pragma once
+
 #include "StdAfx.h"
 #include "Graphix.h"
 #include "TextLabel.h"

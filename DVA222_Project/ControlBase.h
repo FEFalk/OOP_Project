@@ -31,11 +31,14 @@ public:
 	virtual void OnMouseMove(int button, int x, int y);
 	virtual void OnResize(int width, int height);
 
+	Point GetOffset();
+	void SetOffset(int x, int y);
 	Point GetPosition();
 	void SetPosition(int x, int y);
 	void SetSortOrder(float newSortOrder);
 
 protected:
+	Point Offset;
 	Point position;
 	float SortOrder;
 	int Width;

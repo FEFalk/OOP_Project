@@ -15,6 +15,8 @@ ControlBase::ControlBase(int x, int y, int w, int h, float z)
 {
     position.X = x;
     position.Y = y;
+	Offset.X = x;
+	Offset.Y = y;
     Width = w;
     Height = h;
 	SortOrder = z;
@@ -52,6 +54,17 @@ void ControlBase::OnMouseMove(int button, int x, int y)
 
 void ControlBase::OnResize(int width, int height)
 {
+}
+
+Point ControlBase::GetOffset()
+{
+	return Offset;
+}
+
+void ControlBase::SetOffset(int x, int y)
+{
+	Offset.X = x;
+	Offset.Y = y;
 }
 
 Point ControlBase::GetPosition()

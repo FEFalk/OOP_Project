@@ -71,14 +71,14 @@ void InitOGL(int argc, char** argv, ControlBase *window);
 
 void SetColor(int r, int  g, int  b);
 
-void FillRectangle(int x, int y, int width, int height, int z);
+void FillRectangle(int x, int y, int width, int height, float z);
 
-void DrawCircle(int cx, int cy, int radius);
+void DrawCircle(int cx, int cy, int radius, float z);
 void DrawLine(int x1, int y1, int x2, int y2 );
 void DrawRectangle(int x, int y, int width, int height );
-void DrawString(string text, int x, int y);
+void DrawString(string text, int x, int y, float z);
 void DrawBitmap(Bitmap &b, int x, int y);                       //Draws a bitmap with its original size in location x,y
-void DrawBitmap(Bitmap &b, int x, int y, int w, int h);         //Draws a bitmap at location x,y and resizes it to w,h
+void DrawBitmap(Bitmap &b, int x, int y, int w, int h, float z);         //Draws a bitmap at location x,y and resizes it to w,h
 void DrawBitmap(Bitmap &b, Rect& rect, int x, int y);           //Draws a bitmap at location x,y inside a rectangle
 
 

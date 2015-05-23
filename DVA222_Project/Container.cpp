@@ -33,8 +33,32 @@ void Container::OnPaint()
 void Container::AddControl(ControlBase &newControl)
 {
 	controls.push_back(&newControl);
-	newControl.SetPosition(newControl.GetPosition().Y + position.Y, newControl.GetPosition().X + position.X);
+	newControl.SetPosition(newControl.GetOffset().X + position.X, newControl.GetOffset().Y + position.Y);
 	//Sätt sort order lite framför "filled-rectangle"
-	newControl.SetSortOrder(0);
+	newControl.SetSortOrder(SortOrder+0.01);
 
+}
+
+void Container::OnMouseMove(int button, int x, int y)
+{
+	for (int i = 0; i < controls.size(); i++)
+	{
+		controls[i]->OnMouseMove(button, x, y);
+	}
+}
+
+void Container::OnMouseDown(int button, int x, int y)
+{
+	for (int i = 0; i < controls.size(); i++)
+	{
+		controls[i]->OnMouseDown(button, x, y);
+	}
+}
+
+void Container::OnMouseUp(int button, int x, int y)
+{
+	for (int i = 0; i < controls.size(); i++)
+	{
+		controls[i]->OnMouseUp(button, x, y);
+	}
 }

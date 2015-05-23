@@ -20,20 +20,20 @@ void MyRadioButton::OnLoaded()
 }
 void MyRadioButton::OnPaint()
 {
-	SetColor(255, 0, 0);
+	SetColor(0, 0, 0);
     if (checked)
 	{
-		DrawCircle(position.X, position.Y, 15);
-		DrawCircle(position.X, position.Y, 10);
+		DrawCircle(position.X, position.Y, 15, SortOrder);
+		DrawCircle(position.X, position.Y, 10, SortOrder);
 	}
     else
-		DrawCircle(position.X, position.Y, 15);
+		DrawCircle(position.X, position.Y, 15, SortOrder);
     
 }
 
 void MyRadioButton::OnMouseMove(int button, int x, int y)
 {
-	if (x>position.X && x < position.X + Width && y>position.Y && y < position.Y + Height)
+	if (x > position.X -15 && x < position.X + 15 && y>position.Y -15 && y < position.Y + 15)
 		hit = true;
 	else
 		hit = false;

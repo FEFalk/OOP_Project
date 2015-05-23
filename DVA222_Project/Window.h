@@ -9,23 +9,28 @@ public:
 	Window();
 	Window(int locX, int locY, int width, int height, int order);
 	~Window();
-	void OnLoaded(void);
-	void SetBackgroundColor(int r, int g, int b);
-	void SetBorderColor(int r, int g, int b);
-	void SetTitleColor(int r, int g, int b);
-	Color GetColor();
-	void OnResize(int width, int height);
 
+	void OnLoaded(void);
+	void OnPaint();
 	void OnMouseMove(int button, int x, int y);
 	void OnMouseDown(int button, int x, int y);
 	void OnMouseUp(int button, int x, int y);
 
-	void OnPaint();
+	void SetBackgroundColor(int r, int g, int b);
+	void SetBorderColor(int r, int g, int b);
+	void SetTitleColor(int r, int g, int b);
+	Color GetBorderColor();
+	Color GetTitleColor();
+
+	void OnResize(int width, int height);
+
+
+
+
 
 protected:
-	bool hit, pressed, checked;
+	bool hit, pressed;
 	Color borderColor;
-	Color bgColor;
 	Color titleColor;
 	std::string titelString;
 };

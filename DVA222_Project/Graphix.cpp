@@ -35,7 +35,7 @@ void DrawRectangle(int x, int y, int width, int height )
     glEnd();    
 }
 
-void DrawCircle(int cx, int cy, int radius )
+void DrawCircle(int cx, int cy, int radius, float z)
 {
 	glBegin(GL_LINE_LOOP);
 	for (int i = 0;i <= 360; i+= 5)
@@ -47,7 +47,7 @@ void DrawCircle(int cx, int cy, int radius )
     glEnd();    
 }
 
-void FillRectangle(int x, int y, int width, int height, int z)
+void FillRectangle(int x, int y, int width, int height, float z)
 {
 	glBegin(GL_QUADS);
         glVertex3f(x, y, z);
@@ -57,9 +57,9 @@ void FillRectangle(int x, int y, int width, int height, int z)
     glEnd();    
 }
 
-void DrawString(string text, int x, int y)
+void DrawString(string text, int x, int y, float z)
 {
-    glRasterPos2i(y,x);
+    glRasterPos3f(x, y, z);
     for(int i = 0; i < text.length(); i++){ 
         glutBitmapCharacter(GLUT_BITMAP_HELVETICA_12, text.data()[i]);
     }
@@ -91,7 +91,7 @@ void DrawBitmap(Bitmap &b, int x, int y)
 }
 
 
-void DrawBitmap(Bitmap &b, int x, int y, int w, int h)
+void DrawBitmap(Bitmap &b, int x, int y, int w, int h, float z)
 {
 	glPushMatrix();
 	glTranslatef((float)x,(float)y,0);
@@ -107,10 +107,10 @@ void DrawBitmap(Bitmap &b, int x, int y, int w, int h)
 
 	glPolygonMode(GL_FRONT_AND_BACK, GL_POLYGON);
 	glBegin(GL_QUADS);
-            glTexCoord2f(0.0f, 1.0f); glVertex2f(0.0f, 0.0f);
-            glTexCoord2f(0.0f, 0.0f); glVertex2f(0.0f, (float)h);
-            glTexCoord2f(1.0f, 0.0f); glVertex2f((float)w, (float)h);
-            glTexCoord2f(1.0f, 1.0f); glVertex2f((float)w, 0.0f);
+            glTexCoord2f(0.0f, 1.0f); glVertex3f(0.0f, 0.0f, z);
+            glTexCoord2f(0.0f, 0.0f); glVertex3f(0.0f, (float)h, z);
+            glTexCoord2f(1.0f, 0.0f); glVertex3f((float)w, (float)h, z);
+            glTexCoord2f(1.0f, 1.0f); glVertex3f((float)w, 0.0f, z);
 	glEnd();
 	glDisable(GL_TEXTURE_2D);
 	glPopMatrix();
@@ -164,7 +164,7 @@ void SetColor(int r, int  g, int  b)
 void paint(void)
 {
 	//Clear all pixels
-    glClear(GL_COLOR_BUFFER_BIT);
+	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
     w->OnPaint();
     // Don't wait start processing buffered OpenGL routines
@@ -230,17 +230,22 @@ void InitOGL(int argc, char** argv, ControlBase *window)
     glutCreateWindow("DVA 222 - Assignment 2");
     //Call init (initialise GLUT
 	//select clearing (background) color
-    glClearColor(1.0, 1.0, 1.0, 1.0);
+	glClearColor(1.0, 1.0, 1.0, 1.0);
+	glEnable(GL_DEPTH_TEST);
+    
+	
     //initialize viewing values 
     glMatrixMode(GL_PROJECTION);
     glLoadIdentity();
-    glOrtho(0.0, 800.0, 600.0, 0.0, -1.0, 1.0);
+    glOrtho(0.0, 800.0, 600.0, 0.0, -1, 1);
 
 
- //   glEnable ( GL_COLOR_MATERIAL );
+
+ //  glEnable ( GL_COLOR_MATERIAL );
  //   glColorMaterial ( GL_FRONT, GL_AMBIENT_AND_DIFFUSE );
 
 	//glEnable ( GL_CULL_FACE );
+
 
 	//glHint(GL_PERSPECTIVE_CORRECTION_HINT, GL_NICEST);
 

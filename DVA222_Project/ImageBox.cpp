@@ -20,5 +20,5 @@ void ImageBox::OnLoaded()
 
 void ImageBox::OnPaint()
 {
-	DrawBitmap(*image, position.X, position.Y, Width, Height);
+	DrawBitmap(*image, position.X, position.Y, Width, Height, SortOrder);
 }

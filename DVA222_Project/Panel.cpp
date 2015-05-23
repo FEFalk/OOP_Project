@@ -4,12 +4,12 @@
 
 Panel::Panel()
 {
-
+	bgColor = Color(255, 0, 0);
 }
 Panel::Panel(int locX, int locY, int width, int height, float order)
 	:Container(locX, locY, width, height, order)
 {
-
+	bgColor = Color(255, 0, 0);
 }
 
 
@@ -19,27 +19,16 @@ Panel::~Panel()
 }
 void Panel::OnLoaded(void)
 {
-	for (int i = 0; i < controls.size(); i++)
-	{
-		controls[i]->OnLoaded();
-	}
-
-	color = Color(255, 0, 0);
+	Container::OnLoaded();
+	
 }
 void Panel::OnPaint()
 {
-	for (int i = 0; i < controls.size(); i++)
-	{
-		controls[i]->OnPaint();
-	}
-
-	SetColor(color.r, color.g, color.b);
-
+	Container::OnPaint();
+	SetColor(bgColor.r, bgColor.g, bgColor.b);
 	FillRectangle(position.X, position.Y, Width, Height, SortOrder);
 }
-void Panel::SetNewColor(int r, int g, int b)
+void Panel::SetBackgroundColor(int r, int g, int b)
 {
-	color.r = r;
-	color.g = g;
-	color.b = b;
+	bgColor = Color(r, g, b);
 }

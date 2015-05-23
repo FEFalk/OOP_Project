@@ -9,6 +9,8 @@
 #include "Container.h"
 #include "Panel.h"
 #include "Window.h"
+#include "MyRadioButton.h"
+#include "CheckBoxButton.h"
 
 using namespace std;
 
@@ -21,13 +23,20 @@ int _tmain(int argc, char** argv)
     //------------------------------------------------------------------------------------------------------------------------------------
 
     ControlBase* button = new MyButton(10,10,190,60);
-	ControlBase* panel = new Panel(100, 100, 190, 60, 0);
+	ControlBase* panel = new Panel(200, 200, 190, 60, 0);
 	ControlBase* container = new Container(100, 100, 190, 60, 0);
+	ControlBase* window = new Window(100, 100, 700, 400, 0.0f);
+	ControlBase* radioButton = new MyRadioButton(50, 200);
+	ControlBase* checkBoxButton = new CheckBoxButton(50, 300);
 
-	//panel->SetSortOrder(0);
-	static_cast<Container *>(container)->AddControl(*button);
+	static_cast<Panel *>(panel)->SetBackgroundColor(0, 255, 255);
 
-	InitOGL(argc, argv, container);
+	static_cast<Window *>(window)->AddControl(*panel);
+	static_cast<Window *>(window)->AddControl(*button);
+	static_cast<Window *>(window)->AddControl(*radioButton);
+	static_cast<Window *>(window)->AddControl(*checkBoxButton);
+
+	InitOGL(argc, argv, window);
 
     delete button;
 	return 0;

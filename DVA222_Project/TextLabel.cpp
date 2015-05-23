@@ -25,7 +25,7 @@ void TextLabel::OnPaint()
 {
 	SetColor(color.r, color.g, color.b);
 
-	DrawString(labelString, position.X, position.Y);
+	DrawString(labelString, position.X, position.Y, SortOrder);
 }	
 void TextLabel::SetNewColor(int r, int g, int b)
 {
