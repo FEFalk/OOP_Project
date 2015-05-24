@@ -75,7 +75,7 @@ void FillRectangle(int x, int y, int width, int height, float z);
 
 void DrawCircle(int cx, int cy, int radius, float z);
 void DrawLine(int x1, int y1, int x2, int y2 );
-void DrawRectangle(int x, int y, int width, int height );
+void DrawRectangle(int x, int y, int width, int height, float z);
 void DrawString(string text, int x, int y, float z);
 void DrawBitmap(Bitmap &b, int x, int y);                       //Draws a bitmap with its original size in location x,y
 void DrawBitmap(Bitmap &b, int x, int y, int w, int h, float z);         //Draws a bitmap at location x,y and resizes it to w,h

@@ -13,7 +13,6 @@ public:
 	void OnMouseMove(int button, int x, int y);
 	void OnMouseUp(int button, int x, int y);
 
-private:
-	bool checked;
+
 };
 

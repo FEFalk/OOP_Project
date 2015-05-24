@@ -25,42 +25,24 @@
     <Filter Include="Source Files\Graphix">
       <UniqueIdentifier>{2f058991-461e-40f1-bad6-6ecac0090350}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Buttons">
+      <UniqueIdentifier>{ca4f6518-40f1-4710-8859-6005f1bebf05}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Containers">
+      <UniqueIdentifier>{4fbe34a3-1436-4b92-805f-cf960033b080}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Graphix">
+      <UniqueIdentifier>{9031765e-0065-4ae4-bbe8-f2f41dcc28ca}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <None Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="stdafx.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="targetver.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Graphix.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="ControlBase.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="MyButton.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="CheckBoxButton.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Container.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="glut.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="ImageBox.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="MyRadioButton.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Panel.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Struct.h">
@@ -69,8 +51,41 @@
     <ClInclude Include="TextLabel.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="MyButton.h">
+      <Filter>Header Files\Buttons</Filter>
+    </ClInclude>
+    <ClInclude Include="MyRadioButton.h">
+      <Filter>Header Files\Buttons</Filter>
+    </ClInclude>
+    <ClInclude Include="CheckBoxButton.h">
+      <Filter>Header Files\Buttons</Filter>
+    </ClInclude>
+    <ClInclude Include="CheckBoxGroup.h">
+      <Filter>Header Files\Containers</Filter>
+    </ClInclude>
+    <ClInclude Include="Container.h">
+      <Filter>Header Files\Containers</Filter>
+    </ClInclude>
+    <ClInclude Include="RadioButtonGroup.h">
+      <Filter>Header Files\Containers</Filter>
+    </ClInclude>
+    <ClInclude Include="Panel.h">
+      <Filter>Header Files\Containers</Filter>
+    </ClInclude>
     <ClInclude Include="Window.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\Containers</Filter>
+    </ClInclude>
+    <ClInclude Include="stdafx.h">
+      <Filter>Header Files\Graphix</Filter>
+    </ClInclude>
+    <ClInclude Include="glut.h">
+      <Filter>Header Files\Graphix</Filter>
+    </ClInclude>
+    <ClInclude Include="Graphix.h">
+      <Filter>Header Files\Graphix</Filter>
+    </ClInclude>
+    <ClInclude Include="targetver.h">
+      <Filter>Header Files\Graphix</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -108,6 +123,12 @@
       <Filter>Source Files\Graphix</Filter>
     </ClCompile>
     <ClCompile Include="Window.cpp">
+      <Filter>Source Files\Containers</Filter>
+    </ClCompile>
+    <ClCompile Include="CheckBoxGroup.cpp">
+      <Filter>Source Files\Containers</Filter>
+    </ClCompile>
+    <ClCompile Include="RadioButtonGroup.cpp">
       <Filter>Source Files\Containers</Filter>
     </ClCompile>
   </ItemGroup>

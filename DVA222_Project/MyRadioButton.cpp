@@ -3,13 +3,13 @@
 
 MyRadioButton::MyRadioButton()
 {
-	checked=false;
+	pressed = false;
 }
 
 MyRadioButton::MyRadioButton(int locX, int locY)
 	: MyButton(locX, locY, 30, 30)
 {
-	checked=false;
+	pressed = false;
 }
 
 
@@ -21,7 +21,7 @@ void MyRadioButton::OnLoaded()
 void MyRadioButton::OnPaint()
 {
 	SetColor(0, 0, 0);
-    if (checked)
+    if (pressed)
 	{
 		DrawCircle(position.X, position.Y, 15, SortOrder);
 		DrawCircle(position.X, position.Y, 10, SortOrder);
@@ -49,6 +49,5 @@ void MyRadioButton::OnMouseDown(int button, int x, int y)
 
 void MyRadioButton::OnMouseUp(int button, int x, int y)
 {
-	if(pressed && hit)
-		checked = true;
+
 }

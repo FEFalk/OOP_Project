@@ -23,11 +23,11 @@ void CheckBoxButton::OnPaint()
 	SetColor(0, 255, 0);
     if (checked)
 	{
-		DrawRectangle(position.X, position.Y, Width, Height);
-		DrawRectangle(position.X+3, position.Y+3, 24, 24);
+		DrawRectangle(position.X, position.Y, Width, Height, SortOrder);
+		DrawRectangle(position.X+3, position.Y+3, 24, 24, SortOrder);
 	}
     else
-		DrawRectangle(position.X, position.Y, Width, Height);
+		DrawRectangle(position.X, position.Y, Width, Height, SortOrder);
     
 }
 

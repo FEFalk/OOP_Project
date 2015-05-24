@@ -25,13 +25,13 @@ void DrawLine(int x1, int y1, int x2, int y2 )
     glEnd();    
 }
 
-void DrawRectangle(int x, int y, int width, int height )
+void DrawRectangle(int x, int y, int width, int height, float z)
 {
 	glBegin(GL_LINE_LOOP);
-        glVertex3f(x, y, 0.0);
-        glVertex3f(x+width, y, 0.0);
-		glVertex3f(x+width, y+height, 0.0);
-		glVertex3f(x, y+height, 0.0);
+        glVertex3f(x, y, z);
+        glVertex3f(x+width, y, z);
+		glVertex3f(x+width, y+height, z);
+		glVertex3f(x, y+height, z);
     glEnd();    
 }
 
