@@ -25,9 +25,10 @@ int _tmain(int argc, char** argv)
 
     ControlBase* button = new MyButton(20,20,190,60);
 	ControlBase* panel = new Panel(500, 100, 190, 60, 0);
+	ControlBase* panel2 = new Panel(400, 120, 190, 60, 0.1);
 	ControlBase* container = new Container(100, 100, 190, 60, 0);
 	ControlBase* window = new Window(30, 30, 700, 400, 0.0f);
-
+	ControlBase* label = new TextLabel(10, 22, 50, 20);
 
 	ControlBase** checkBoxButtons = new ControlBase *[3];
 	ControlBase** radioButtons = new ControlBase *[3];
@@ -47,11 +48,15 @@ int _tmain(int argc, char** argv)
 		static_cast<RadioButtonGroup *>(radioButtonGroup)->AddControl(*radioButtons[i]);
 	}
 
+	static_cast<TextLabel *>(label)->ChangeText("This is a string inside a panel!");
+	static_cast<Panel *>(panel)->AddControl(*label);
 
-	static_cast<Panel *>(panel)->SetBackgroundColor(0, 255, 255);
+	static_cast<Panel *>(panel)->SetBackgroundColor(150, 0, 0);
+	static_cast<Panel *>(panel2)->SetBackgroundColor(0, 0, 150);
 	static_cast<Panel *>(window)->SetBackgroundColor(100, 100, 100);
 
 	static_cast<Window *>(window)->AddControl(*panel);
+	static_cast<Window *>(window)->AddControl(*panel2);
 	static_cast<Window *>(window)->AddControl(*button);
 	static_cast<Window *>(window)->AddControl(*radioButtonGroup);
 	static_cast<Window *>(window)->AddControl(*checkBoxGroup);

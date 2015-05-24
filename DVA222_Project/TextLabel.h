@@ -13,7 +13,7 @@ public:
 	void OnPaint();	
 	void SetNewColor(int r, int g, int b);	
 	Color GetColor();
-	void changeText(string);
+	void ChangeText(string);
 
 protected:
 	std::string labelString;

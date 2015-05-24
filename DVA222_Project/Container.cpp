@@ -35,7 +35,7 @@ void Container::AddControl(ControlBase &newControl)
 	controls.push_back(&newControl);
 	newControl.SetPosition(newControl.GetOffset().X + position.X, newControl.GetOffset().Y + position.Y);
 	//Sätt sort order lite framför "filled-rectangle"
-	newControl.SetSortOrder(SortOrder+0.01);
+	newControl.SetSortOrder(newControl.GetSortOrder()+SortOrder+0.01);
 
 }
 

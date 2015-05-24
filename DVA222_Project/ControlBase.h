@@ -36,6 +36,7 @@ public:
 	Point GetPosition();
 	void SetPosition(int x, int y);
 	void SetSortOrder(float newSortOrder);
+	float GetSortOrder();
 
 protected:
 	Point Offset;

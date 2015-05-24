@@ -69,20 +69,25 @@ void Window::OnResize(int width, int height)
 void Window::OnMouseMove(int button, int x, int y)
 {
 	Container::OnMouseMove(button, x, y);
-	if (x>position.X && x < position.X + Width && y>position.Y && y < position.Y + Height)
+	if (x>position.X-5 && x < position.X+5 + Width && y>position.Y-5 && y < position.Y+30)
 		hit = true;
 	else
 		hit = false;
 	if (pressed)
 	{
-		position.X = x;
+		if (!prevPressed)
+			offset = x - position.X;
+		position.X = x-offset;
 		position.Y = y;
 
 		for (int i = 0; i < controls.size(); i++)
 		{
 			controls[i]->SetPosition(controls[i]->GetOffset().X + position.X, controls[i]->GetOffset().Y + position.Y);
 		}
+		prevPressed = true;
 	}
+	else
+		prevPressed = false;
 }
 
 void Window::OnMouseDown(int button, int x, int y)

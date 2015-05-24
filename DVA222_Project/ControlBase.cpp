@@ -82,3 +82,8 @@ void ControlBase::SetSortOrder(float newSortOrder)
 {
 	SortOrder = newSortOrder;
 }
+
+float ControlBase::GetSortOrder()
+{
+	return SortOrder;
+}

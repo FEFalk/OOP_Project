@@ -4,11 +4,14 @@
 
 TextLabel::TextLabel(void)
 {
+	labelString.append("HejHej");
+	color = Color(0, 0, 10);
 }
 TextLabel::TextLabel(int locX, int locY, int width, int height)
 	:ControlBase(locX, locY, width, height, 0)
 {
-
+	labelString.append("HejHej");
+	color = Color(50, 255, 255);
 }
 
 TextLabel::~TextLabel(void)
@@ -17,9 +20,7 @@ TextLabel::~TextLabel(void)
 
 void TextLabel::OnLoaded(void)
 {
-	labelString.clear();
-	labelString.append("HejHej");
-	color = Color(255, 0, 0);
+
 }
 void TextLabel::OnPaint()
 {
@@ -38,9 +39,9 @@ Color TextLabel::GetColor()
 {
 	return color;
 }
-void TextLabel::changeText(string string)
+void TextLabel::ChangeText(string string)
 {
 	labelString.clear();
-	labelString.append(string);
+	labelString.assign(string);
 
 }

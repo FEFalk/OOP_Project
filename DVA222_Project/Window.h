@@ -29,7 +29,8 @@ public:
 
 
 protected:
-	bool hit, pressed;
+	bool hit, pressed, prevPressed;
+	float offset;
 	Color borderColor;
 	Color titleColor;
 	std::string titelString;
