@@ -56,6 +56,8 @@ void ControlBase::OnResize(int width, int height)
 {
 	Width = Width/2;
 	Height = Height/2;
+	Offset.X = Offset.X / 2;
+	Offset.Y = Offset.Y / 2;
 }
 
 Point ControlBase::GetOffset()
