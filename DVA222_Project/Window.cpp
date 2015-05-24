@@ -98,6 +98,8 @@ void Window::OnMouseDown(int button, int x, int y)
 	if (resizeButton->pressed == true)
 	{
 		resize(Width / 2, Height / 2);
+		resizeButton->SetOffset(resizeButton->GetOffset().X / 2, resizeButton->GetOffset().Y / 2);
+
 	}
 
 	if (hit && button == MOUSE_LEFT)

@@ -6,8 +6,8 @@ MyRadioButton::MyRadioButton()
 	pressed = false;
 }
 
-MyRadioButton::MyRadioButton(int locX, int locY)
-	: MyButton(locX, locY, 30, 30)
+MyRadioButton::MyRadioButton(int locX, int locY, int radius)
+	: MyButton(locX, locY, radius * 2, radius * 2)
 {
 	pressed = false;
 }
@@ -23,11 +23,11 @@ void MyRadioButton::OnPaint()
 	SetColor(0, 0, 0);
     if (pressed)
 	{
-		DrawCircle(position.X, position.Y, 15, SortOrder);
-		DrawCircle(position.X, position.Y, 10, SortOrder);
+		DrawCircle(position.X, position.Y, Width, SortOrder);
+		DrawCircle(position.X, position.Y, Width-5, SortOrder);
 	}
     else
-		DrawCircle(position.X, position.Y, 15, SortOrder);
+		DrawCircle(position.X, position.Y, Width, SortOrder);
     
 }
 

@@ -5,7 +5,7 @@ class MyRadioButton : public MyButton
 {
 public:
 	MyRadioButton();
-	MyRadioButton(int locX, int locY);
+	MyRadioButton(int locX, int locY, int radius);
 
 	void OnLoaded();
 	void OnPaint();

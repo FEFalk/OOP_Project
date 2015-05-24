@@ -41,7 +41,7 @@ int _tmain(int argc, char** argv)
 	{
 		checkBoxButtons[i] = new CheckBoxButton(10, i * 40 + 20);
 		static_cast<CheckBoxGroup *>(checkBoxGroup)->AddControl(*checkBoxButtons[i]);
-		radioButtons[i] = new MyRadioButton(20, i * 40 + 35);
+		radioButtons[i] = new MyRadioButton(20, i * 40 + 35, 7);
 		static_cast<RadioButtonGroup *>(radioButtonGroup)->AddControl(*radioButtons[i]);
 	}
 
