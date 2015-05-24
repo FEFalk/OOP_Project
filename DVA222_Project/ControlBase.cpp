@@ -54,6 +54,8 @@ void ControlBase::OnMouseMove(int button, int x, int y)
 
 void ControlBase::OnResize(int width, int height)
 {
+	Width = Width/2;
+	Height = Height/2;
 }
 
 Point ControlBase::GetOffset()

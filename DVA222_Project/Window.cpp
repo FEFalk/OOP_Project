@@ -4,18 +4,22 @@
 
 Window::Window()
 {
-	hit = pressed = false;
+	Window::Window(0, 0, 100, 100, 0);
 }
 Window::Window(int locX, int locY, int width, int height, int order)
 	: Panel(locX, locY, width, height, order)
 {
 	hit = pressed = false;
+	resizeButton = new MyButton(locX + width - 15, locY + 5, 10, 10);
+	resizeButton->SetOffset(width -15, 5);
+	resizeButton->SetSortOrder(SortOrder + 0.1);
 }
 
 
 Window::~Window()
 {
 }
+
 void Window::OnLoaded(void)
 {
 	Panel::OnLoaded();
@@ -34,6 +38,8 @@ void Window::OnPaint()
 	SetColor(titleColor.r, titleColor.g, titleColor.b);
 	DrawString(titelString, position.X + 5, position.Y + 10, SortOrder+0.02);
 
+	SetColor(255, 255, 255);
+	DrawRectangle(resizeButton->GetPosition().X, resizeButton->GetPosition().Y, 10, 10, resizeButton->GetSortOrder()+0.1);
 	//resize(500, 500);
 }
 
@@ -61,16 +67,14 @@ Color Window::GetBorderColor()
 	return borderColor;
 }
 
-void Window::OnResize(int width, int height)
-{
-	/*resize(width, height);*/
-}
-
 void Window::OnMouseMove(int button, int x, int y)
 {
 	Container::OnMouseMove(button, x, y);
-	if (x>position.X-5 && x < position.X+5 + Width && y>position.Y-5 && y < position.Y+30)
+	resizeButton->OnMouseMove(button, x, y);
+	if (x > position.X - 5 && x < position.X + 5 + Width && y>position.Y - 5 && y < position.Y + 30)
+	{
 		hit = true;
+	}
 	else
 		hit = false;
 	if (pressed)
@@ -79,11 +83,8 @@ void Window::OnMouseMove(int button, int x, int y)
 			offset = x - position.X;
 		position.X = x-offset;
 		position.Y = y;
+		resizeButton->SetPosition(resizeButton->GetOffset().X + position.X, resizeButton->GetOffset().Y + position.Y);
 
-		for (int i = 0; i < controls.size(); i++)
-		{
-			controls[i]->SetPosition(controls[i]->GetOffset().X + position.X, controls[i]->GetOffset().Y + position.Y);
-		}
 		prevPressed = true;
 	}
 	else
@@ -93,6 +94,12 @@ void Window::OnMouseMove(int button, int x, int y)
 void Window::OnMouseDown(int button, int x, int y)
 {
 	Container::OnMouseDown(button, x, y);
+	resizeButton->OnMouseDown(button, x, y);
+	if (resizeButton->pressed == true)
+	{
+		resize(Width / 2, Height / 2);
+	}
+
 	if (hit && button == MOUSE_LEFT)
 		pressed = true;
 	else
@@ -102,6 +109,16 @@ void Window::OnMouseDown(int button, int x, int y)
 void Window::OnMouseUp(int button, int x, int y)
 {
 	Container::OnMouseUp(button, x, y);
+	resizeButton->OnMouseUp(button, x, y);
+
 	if (pressed)
 		pressed = false;
+}
+
+void Window::OnResize(int width, int height)
+{
+	for (int i = 0; i < controls.size(); i++)
+	{
+		controls[i]->OnResize(0, 0);
+	}
 }

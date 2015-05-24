@@ -3,6 +3,8 @@
 #include "Graphix.h"
 #include "Struct.h"
 #include <string>
+#include "MyButton.h"
+
 class Window:public Panel
 {
 public:
@@ -24,15 +26,12 @@ public:
 
 	void OnResize(int width, int height);
 
-
-
-
-
 protected:
 	bool hit, pressed, prevPressed;
 	float offset;
 	Color borderColor;
 	Color titleColor;
 	std::string titelString;
+	MyButton *resizeButton;
 };
 

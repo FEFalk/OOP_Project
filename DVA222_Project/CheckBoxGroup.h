@@ -10,7 +10,6 @@ public:
 	void OnLoaded(void);
 	void OnPaint();
 
-
 	void SetTitle(string newTitle);
 	string GetTitle();
 	

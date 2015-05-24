@@ -32,7 +32,7 @@ void DrawRectangle(int x, int y, int width, int height, float z)
         glVertex3f(x+width, y, z);
 		glVertex3f(x+width, y+height, z);
 		glVertex3f(x, y+height, z);
-    glEnd();    
+		glEnd();
 }
 
 void DrawCircle(int cx, int cy, int radius, float z)
@@ -42,7 +42,7 @@ void DrawCircle(int cx, int cy, int radius, float z)
 	{
 		int x = cos(i / 180.0 * 3.1416) * radius;
 		int y = sin(i / 180.0 * 3.1416) * radius;
-        glVertex3f(cx+x, cy+y, 0.0);
+        glVertex3f(cx+x, cy+y, z);
 	}
     glEnd();    
 }

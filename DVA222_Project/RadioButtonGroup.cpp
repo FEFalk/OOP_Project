@@ -25,12 +25,6 @@ void RadioButtonGroup::OnLoaded()
 
 void RadioButtonGroup::OnPaint()
 {
-
-	for (int i = 0; i < controls.size(); i++)
-	{
-		controls[i]->SetPosition(controls[i]->GetOffset().X + position.X, controls[i]->GetOffset().Y + position.Y);
-	}
-
 	Container::OnPaint();
 
 	SetColor(255, 0, 255);

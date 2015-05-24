@@ -24,11 +24,6 @@ void Panel::OnLoaded(void)
 }
 void Panel::OnPaint()
 {
-	for (int i = 0; i < controls.size(); i++)
-	{
-		controls[i]->SetPosition(controls[i]->GetOffset().X + position.X, controls[i]->GetOffset().Y + position.Y);
-	}
-
 	Container::OnPaint();
 	SetColor(bgColor.r, bgColor.g, bgColor.b);
 	FillRectangle(position.X, position.Y, Width, Height, SortOrder);

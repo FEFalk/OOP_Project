@@ -23,12 +23,6 @@ void CheckBoxGroup::OnLoaded()
 
 void CheckBoxGroup::OnPaint()
 {
-
-	for (int i = 0; i < controls.size(); i++)
-	{
-		controls[i]->SetPosition(controls[i]->GetOffset().X + position.X, controls[i]->GetOffset().Y + position.Y);
-	}
-
 	Container::OnPaint();
 
 	SetColor(0, 0, 255);
